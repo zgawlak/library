@@ -1,0 +1,10 @@
+.book-cards {
+    display: flex;
+    gap: 5px;
+}
+
+.card {
+    background-color: bisque;
+    width: 200px;
+    padding: 10px;
+}
