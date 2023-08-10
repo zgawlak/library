@@ -1,4 +1,6 @@
 let myLibrary = [];
+const addBookButton = document.querySelector('.add-book');
+const addBookModal = document.querySelector('.add-book-modal');
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -38,3 +40,5 @@ myLibrary.push(sorcerersStone);
 myLibrary.push(lifeOfPi);
 
 displayBookCard();
+
+document.addEventListener('click', () => addBookModal.showModal());
