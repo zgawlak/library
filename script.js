@@ -59,6 +59,16 @@ function displayBookCard() {
         readElement.textContent = book.read;
         card.appendChild(readElement);
 
+        const readButton = document.createElement('button');
+        readButton.textContent = "Read?";
+        readButton.addEventListener('click', () => {
+            if (book.read === 'Read') book.read = 'Not read yet';
+            else book.read = 'Read';
+            displayBookCard();
+            console.table(myLibrary);
+        });
+        card.appendChild(readButton);
+
         const removeButton = document.createElement('button');
         removeButton.textContent = "Remove";
         removeButton.addEventListener('click', () => {
