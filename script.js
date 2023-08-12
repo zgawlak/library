@@ -37,10 +37,12 @@ function displayBookCard() {
     cardsList.forEach((div) => {
         bookCards.removeChild(div);
     })
-    for (const book in myLibrary) {
+    for (const index in myLibrary) {
+        const book = myLibrary[index];
         const card = document.createElement('div');
+        card.setAttribute('data-index', index);
         card.classList.add('card');
-        card.innerHTML = `Title: ${myLibrary[book].title}<br>Author: ${myLibrary[book].author}<br># of pages: ${myLibrary[book].pages}<br>${myLibrary[book].read}`;
+        card.innerHTML = `Title: ${book.title}<br>Author: ${book.author}<br># of pages: ${book.pages}<br>${book.read}`;
         bookCards.appendChild(card);
     }
 }
