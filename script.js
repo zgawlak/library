@@ -42,7 +42,23 @@ function displayBookCard() {
         const card = document.createElement('div');
         card.setAttribute('data-index', index);
         card.classList.add('card');
-        card.innerHTML = `Title: ${book.title}<br>Author: ${book.author}<br># of pages: ${book.pages}<br>${book.read}`;
+
+        const titleElement = document.createElement('p');
+        titleElement.textContent = `Title: ${book.title}`;
+        card.appendChild(titleElement);
+
+        const authorElement = document.createElement('p');
+        authorElement.textContent = `Author: ${book.author}`;
+        card.appendChild(authorElement);
+
+        const pagesElement = document.createElement('p');
+        pagesElement.textContent = `# of pages: ${book.pages}`;
+        card.appendChild(pagesElement);
+
+        const readElement = document.createElement('p');
+        readElement.textContent = book.read;
+        card.appendChild(readElement);
+
         bookCards.appendChild(card);
     }
 }
@@ -50,6 +66,10 @@ function displayBookCard() {
 function resetInputs() {
     modalInputs.forEach((input) => input.value = '');
     readInput.checked = false;
+}
+
+function removeBook(index) {
+    myLibrary.splice(index, 1);
 }
 
 function handleSubmitButton(e) {
