@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,31 +8,23 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
+
 <body>
     <div class="book-cards"></div>
     <button class="add-book">+</button>
-    <dialog class="add-book-modal">
+    <div class="add-book-modal">
         <p>Add book</p>
-        <form>
-            <p>
-                <label>
-                    Title:
-                    <input id="title-input" type="text">
-                </label><br>
-                <label>
-                    Author:
-                    <input id="author-input" type="text">
-                </label><br>
-                <label># of pages:
-                    <input id="pages-input" type="number">
-                </label><br>
-                <label>
-                    Have you read it?
-                    <input id="read-input" type="checkbox">
-                </label>
-            </p>
-            <button id="submit-book">Submit</button>
+        <form class="book-form">
+            Title:
+            <input id="title-input" type="text" required><br>
+            Author:
+            <input id="author-input" type="text" required><br># of pages:
+            <input id="pages-input" type="number" required><br>
+            Have you read it?
+            <input id="read-input" type="checkbox">
+            <button type="submit" id="submit-book">Submit</button>
         </form>
-    </dialog>
+    </div>
 </body>
+
 </html>

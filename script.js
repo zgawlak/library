@@ -2,6 +2,7 @@ let myLibrary = [];
 const addBookButton = document.querySelector('.add-book');
 const addBookModal = document.querySelector('.add-book-modal');
 const submitBookButton = document.querySelector('#submit-book');
+const bookForm = document.querySelector('.book-form');
 
 const modalInputs = document.querySelectorAll('input');
 const titleInput = document.querySelector('#title-input');
@@ -14,7 +15,7 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.info = function() {
+    this.info = function () {
         return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
     }
 }
@@ -44,14 +45,18 @@ function displayBookCard() {
     }
 }
 
+function resetInputs() {
+    modalInputs.forEach((input) => input.value = '');
+    readInput.checked = false;
+}
+
 function handleSubmitButton(e) {
     e.preventDefault();
     addBookToLibrary();
-    modalInputs.forEach((input) => input.value = '');
-    readInput.checked = false;
+    resetInputs();
     displayBookCard();
     addBookModal.style.display = 'none';
 }
 
 addBookButton.addEventListener('click', () => addBookModal.style.display = 'block');
-submitBookButton.addEventListener('click', handleSubmitButton);
+bookForm.addEventListener('submit', handleSubmitButton);
