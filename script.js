@@ -59,6 +59,16 @@ function displayBookCard() {
         readElement.textContent = book.read;
         card.appendChild(readElement);
 
+        const removeButton = document.createElement('button');
+        removeButton.textContent = "Remove";
+        removeButton.addEventListener('click', () => {
+            const dataIndex = card.getAttribute('data-index');
+            removeBook(dataIndex);
+            displayBookCard();
+            console.table(myLibrary);
+        });
+        card.appendChild(removeButton);
+
         bookCards.appendChild(card);
     }
 }
