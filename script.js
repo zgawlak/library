@@ -1,6 +1,12 @@
 let myLibrary = [];
 const addBookButton = document.querySelector('.add-book');
 const addBookModal = document.querySelector('.add-book-modal');
+const submitBookButton = document.querySelector('#submit-book');
+
+const titleInput = document.querySelector('#title-input');
+const authorInput = document.querySelector('#author-input');
+const pagesInput = document.querySelector('#pages-input');
+const readInput = document.querySelector('#read-input');
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -14,10 +20,12 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary() {
-    let title = window.prompt('Enter book title');
-    let author = window.prompt('Enter book\'s author');
-    let pages = window.prompt('Enter number of pages');
-    let read = window.prompt('Have you read the book?');
+    let title = titleInput.textContent;
+    let author = authorInput.textContent;
+    let pages = pagesInput.textContent;
+    let read = '';
+    if (readInput.checked) read = 'Read';
+    else read = 'Not read yet';
     newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
 }
@@ -41,4 +49,5 @@ myLibrary.push(lifeOfPi);
 
 displayBookCard();
 
-document.addEventListener('click', () => addBookModal.showModal());
+addBookButton.addEventListener('click', () => addBookModal.style.display = 'block');
+submitBookButton.addEventListener('click', () => addBookModal.style.display = 'none');
