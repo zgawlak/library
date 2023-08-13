@@ -26,7 +26,7 @@ function addBookToLibrary() {
     const title = titleInput.value;
     const author = authorInput.value;
     const pages = pagesInput.value;
-    const isRead = readInput.checked ? 'Read' : 'Not read yet';
+    const isRead = readInput.checked ? 'read' : 'not read yet';
     newBook = new Book(title, author, pages, isRead);
     myLibrary.push(newBook);
 }
@@ -60,20 +60,20 @@ function createBookCard(book, index) {
     const readElement = document.createElement('p');
     readElement.style.fontStyle = 'italic';
     readElement.textContent = book.isRead;
-    if (book.isRead === 'Read') card.classList.add('read-book')
+    if (book.isRead === 'read') card.classList.add('read-book')
     else card.classList.add('unread-book');
     card.appendChild(readElement);
 
     const readButton = document.createElement('button');
-    readButton.textContent = "Read?";
+    readButton.textContent = "read?";
     readButton.addEventListener('click', () => {
-        book.isRead = book.isRead === 'Read' ? 'Not read yet' : 'Read';
+        book.isRead = book.isRead === 'read' ? 'not read yet' : 'read';
         displayBookCards();
     });
     card.appendChild(readButton);
 
     const removeButton = document.createElement('button');
-    removeButton.textContent = "Remove";
+    removeButton.textContent = "remove";
     removeButton.addEventListener('click', () => {
         const dataIndex = card.getAttribute('data-index');
         removeBook(dataIndex);
