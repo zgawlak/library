@@ -10,20 +10,16 @@
 </head>
 
 <body>
-    <button class="add-book">+</button>
+    <button class="add-book">+ add book</button>
     <div class="add-book-modal">
-        <p>Add book</p>
+        <p>add new book</p>
         <form class="book-form">
-            Title:
-            <input id="title-input" type="text" required><br>
-            Author:
-            <input id="author-input" type="text" required><br># of pages:
-            <input id="pages-input" type="number" required><br>
-            Have you read it?
-            <input id="read-input" type="checkbox">
-            <br>
-            <button type="submit" id="submit-book">Submit</button>
-            <button id="cancel">Cancel</button>
+            <label><input class="book-input" id="title-input" type="text" placeholder="Title" required></label>
+            <label><input class="book-input" id="author-input" type="text" placeholder="Author" required></label>
+            <label><input class="book-input" id="pages-input" type="number" placeholder="Number of pages" required></label>
+            <label><p class="read-label">Have you read the book?</p><input id="read-input" type="checkbox"></label>
+            <br><button type="submit" class="modal-buttons" id="submit-book">Submit</button>
+            <button class="modal-buttons" id="cancel">Cancel</button>
         </form>
     </div>
     <div class="book-cards"></div>
