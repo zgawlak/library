@@ -15,6 +15,21 @@ button {
     cursor: pointer;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.header {
+    padding: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #fff;
+    color: #8d6b94;
+}
+
 .add-book {
     font-size: 18px;
     font-weight: bold;
@@ -34,9 +49,12 @@ button {
 }
 
 .book-cards {
+    padding: 32px;
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    align-items: center;
+    justify-content: space-around;
+    gap: 16px;
 }
 
 .card {
@@ -46,6 +64,7 @@ button {
     color: #fff;
     border-radius: 5px;
     text-align: right;
+    overflow-y: auto;
 }
 
 .read-book {
