@@ -2,6 +2,7 @@ let myLibrary = [];
 const addBookButton = document.querySelector('.add-book');
 const addBookModal = document.querySelector('.add-book-modal');
 const submitBookButton = document.querySelector('#submit-book');
+const cancelButton = document.querySelector('#cancel');
 const bookForm = document.querySelector('.book-form');
 
 const modalInputs = document.querySelectorAll('input');
@@ -98,5 +99,12 @@ function handleSubmitButton(e) {
     addBookModal.classList.remove('modal-active');
 }
 
+function handleCancelButton(e) {
+    e.preventDefault();
+    resetInputs();
+    addBookModal.classList.remove('modal-active');
+}
+
 addBookButton.addEventListener('click', () => addBookModal.classList.add('modal-active'));
 bookForm.addEventListener('submit', handleSubmitButton);
+cancelButton.addEventListener('click', handleCancelButton);
