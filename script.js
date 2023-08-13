@@ -95,8 +95,8 @@ function handleSubmitButton(e) {
     addBookToLibrary();
     resetInputs();
     displayBookCards();
-    addBookModal.style.display = 'none';
+    addBookModal.classList.remove('modal-active');
 }
 
-addBookButton.addEventListener('click', () => addBookModal.style.display = 'block');
+addBookButton.addEventListener('click', () => addBookModal.classList.add('modal-active'));
 bookForm.addEventListener('submit', handleSubmitButton);
