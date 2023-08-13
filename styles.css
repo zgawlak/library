@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     height: 100%;
     padding: 0;
     margin: 0;
@@ -34,12 +35,29 @@ button {
 
 .book-cards {
     display: flex;
+    flex-wrap: wrap;
     gap: 5px;
 }
 
 .card {
     width: 200px;
-    padding: 10px;
+    padding: 16px;
+    background-color: #8c80a3;
+    color: #fff;
+    border-radius: 5px;
+    text-align: right;
+}
+
+.read-book {
+    background-image: url('images/turned-book.png');
+    background-position: top left;
+    background-repeat: no-repeat;
+}
+
+.unread-book {
+    background-image: url('images/open-book.png');
+    background-position: top left;
+    background-repeat: no-repeat;
 }
 
 .add-book-modal {
@@ -68,7 +86,8 @@ button {
     font-weight: bold;
 }
 
-.book-input, .modal-buttons {
+.book-input,
+.modal-buttons {
     font-size: 20px;
     border: transparent;
     border-radius: 5px;

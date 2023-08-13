@@ -45,19 +45,23 @@ function createBookCard(book, index) {
     card.classList.add('card');
 
     const titleElement = document.createElement('p');
-    titleElement.textContent = `Title: ${book.title}`;
+    titleElement.style.fontWeight = 'bold';
+    titleElement.textContent = book.title;
     card.appendChild(titleElement);
 
     const authorElement = document.createElement('p');
-    authorElement.textContent = `Author: ${book.author}`;
+    authorElement.textContent = `by ${book.author}`;
     card.appendChild(authorElement);
 
     const pagesElement = document.createElement('p');
-    pagesElement.textContent = `# of pages: ${book.pages}`;
+    pagesElement.textContent = `${book.pages} pages`;
     card.appendChild(pagesElement);
 
     const readElement = document.createElement('p');
+    readElement.style.fontStyle = 'italic';
     readElement.textContent = book.isRead;
+    if (book.isRead === 'Read') card.classList.add('read-book')
+    else card.classList.add('unread-book');
     card.appendChild(readElement);
 
     const readButton = document.createElement('button');
@@ -65,7 +69,6 @@ function createBookCard(book, index) {
     readButton.addEventListener('click', () => {
         book.isRead = book.isRead === 'Read' ? 'Not read yet' : 'Read';
         displayBookCards();
-        console.table(myLibrary);
     });
     card.appendChild(readButton);
 
@@ -75,7 +78,6 @@ function createBookCard(book, index) {
         const dataIndex = card.getAttribute('data-index');
         removeBook(dataIndex);
         displayBookCards();
-        console.table(myLibrary);
     });
     card.appendChild(removeButton);
 
