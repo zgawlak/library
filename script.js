@@ -1,6 +1,8 @@
 let myLibrary = [];
 const addBookButton = document.querySelector('.add-book');
 const addBookModal = document.querySelector('.add-book-modal');
+const overlay = document.querySelector('.overlay');
+
 const submitBookButton = document.querySelector('#submit-book');
 const cancelButton = document.querySelector('#cancel');
 const bookForm = document.querySelector('.book-form');
@@ -81,7 +83,7 @@ function createBookCard(book, index) {
     });
     card.appendChild(removeButton);
 
-   return card;
+    return card;
 }
 
 function resetInputs() {
@@ -93,20 +95,28 @@ function removeBook(index) {
     myLibrary.splice(index, 1);
 }
 
+function handleAddBookButton() {
+    overlay.classList.add('active');
+    addBookModal.classList.add('modal-active');
+}
+
 function handleSubmitButton(e) {
     e.preventDefault();
     addBookToLibrary();
     resetInputs();
     displayBookCards();
+    overlay.classList.remove('active')
     addBookModal.classList.remove('modal-active');
 }
 
 function handleCancelButton(e) {
     e.preventDefault();
     resetInputs();
+    overlay.classList.remove('active')
     addBookModal.classList.remove('modal-active');
 }
 
-addBookButton.addEventListener('click', () => addBookModal.classList.add('modal-active'));
+addBookButton.addEventListener('click', handleAddBookButton);
 bookForm.addEventListener('submit', handleSubmitButton);
 cancelButton.addEventListener('click', handleCancelButton);
+overlay.addEventListener('click', handleCancelButton);
